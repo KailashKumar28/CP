@@ -1,0 +1,18 @@
+[
+	{
+		"correct_answers":
+		[
+			"0\ndaabcbaabcbc\nIndex i : 0 Index p : 0\ndaabcbaabcbc\nIndex i : 1 Index p : 1\ndaabcbaabcbc\nIndex i : 2 Index p : 1\ndaabcbaabcbc\nIndex i : 3 Index p : 2\ndabaabcbc\nIndex i : -1 Index p : 0\ndabaabcbc\nIndex i : 0 Index p : 0\ndabaabcbc\nIndex i : 1 Index p : 1\ndabaabcbc\nIndex i : 2 Index p : 2\ndabaabcbc\nIndex i : 3 Index p : 2\ndabaabcbc\nIndex i : 4 Index p : 2\ndabaabcbc\nIndex i : 5 Index p : 2\ndababc\nIndex i : -1 Index p : 0\ndababc\nIndex i : 0 Index p : 0\ndababc\nIndex i : 1 Index p : 1\ndababc\nIndex i : 2 Index p : 2\ndababc\nIndex i : 3 Index p : 2\ndababc\nIndex i : 4 Index p : 2\ndab\nIndex i : -1 Index p : 0\ndab\nIndex i : 0 Index p : 0\ndab\nIndex i : 1 Index p : 1\ndab\nIndex i : 2 Index p : 2\ndab"
+		],
+		"test": "daabcbaabcbc\nabc\n"
+	},
+	{
+		"test": "axxxxyyyyb\nxy\n"
+	},
+	{
+		"test": "gjgjdsqcjibhpskzgdwwhdcrzcyjfzvxzbnkdtpjuotcmlqunczabsysvzdsqcjibhpskzgdwwhdcrzcyjfzvxzbnkdtpjuogjdsqcjibhpskzgdwwhdcrzcyjfzvxzbnkdtpjuotcmlqunczabsysgjdsqcjibhpskzgdwwhdcrzcyjfzvxgjdgjdsqcjibhpskzgdwwhdcrzcyjfzvxzbnkdtpjuotcmlqunczabsysvzsgjdsqcjibhpskzgdwwhdcrzcyjfzvxzbnkdtpjuotcmlqunczabsysvzqcjibhpskzgdwwhdcrzcyjfzvxzbnkdtpjuotcmlqunczabsysvzzbnkdtpjuotcmlqunczabsysvzvztcmlqunczabsysvzxmqgfeyfzzpnewyngwdshjxbevxdofqsexkdkwsbvtts\ngjdsqcjibhpskzgdwwhdcrzcyjfzvxzbnkdtpjuotcmlqunczabsysvz\n"
+	},
+	{
+		"test": "kpygkivtlqoockpygkivtlqoocssnextkqzjpycbylkaondsskpygkpygkivtlqoocssnextkqzjpkpygkivtlqoocssnextkqzjpycbylkaondsycbylkaondskivtlqoocssnextkqzjpycbylkaondssnextkqzjpycbylkaondshijzgaovndkjiiuwjtcpdpbkrfsi\nkpygkivtlqoocssnextkqzjpycbylkaonds\n"
+	}
+]

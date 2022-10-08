@@ -1,0 +1,17 @@
+[
+	{
+		"test": "ab\neidbaooo\n"
+	},
+	{
+		"test": "ab\neidboaoo\n"
+	},
+	{
+		"test": "adc\ndcda\n"
+	},
+	{
+		"test": "a\nab\n"
+	},
+	{
+		"test": "ab\na\n"
+	}
+]
