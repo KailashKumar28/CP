@@ -1,181 +1,55 @@
-//{ Driver Code Starts
+// Kailash Kumar
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
-// Tree Node
-struct Node
-{
-    int data;
-    Node* left;
-    Node* right;
-    Node(){
-        data = 0;
-        left = right = NULL;
+int main(){
+    vector<vector<vector<float>>> data;
+    int n;   
+    // cout << "Please incert the number of solar systems in the problem : ";                               // number of solar systems 
+    cin >> n;
+    for(int i = 0; i < n; i++){
+        int s;                               // number of stars in a solar system
+        // cout << "Incert the number of stars in " << i+1 << "th solar system";
+        cin >> s;
+        vector<vector<float>>temp1;
+        for(int  j = 0; j < s; j++){
+            vector<float> temp2;
+            float output, distance;
+            // cout << "Incert the output and distance for star number " << s+1 << " for solar system " << i+1 << ": ";
+            cin >> output >> distance;
+            temp2.push_back(output);
+            temp2.push_back(distance);
+            temp1.push_back(temp2);
+        }
+        data.push_back(temp1);
     }
-    Node(int x){
-        data = x;
-        left = right = NULL;
-    }
-};
-
-// } Driver Code Ends
-/* A binary tree node
-
-struct Node
-{
-    int data;
-    struct Node* left;
-    struct Node* right;
+    float en1,en2;
+    cin >> en1 >> en2;                // energy range input for range suitable for people of kandor to live
     
-    Node(int x){
-        data = x;
-        left = right = NULL;
-    }
-};
- */
-
-class Solution
-{
-    public:
-    //Function to return the lowest common ancestor in a Binary Tree.
-    Node* lca(Node* root ,int n1 ,int n2 )
-    {
-       //Your code here 
-       if(root == NULL){
-           return NULL;
-       }
-       cout << " root is " << root -> data << endl;
-       if(root -> data == n1 || root -> data == n2){
-           //cout << "root in matching " << root -> data << endl;
-           return root;
-       }
-       
-       Node* left = lca(root -> left, n1,n2);
-       Node* right = lca(root -> right , n1, n2);
-       cout << "root while returning : " << root -> data << endl;
-       if(left == NULL && right == NULL){
-        cout << "left and right both are NULL" << endl;
-       }
-       if(left != NULL && right != NULL){
-           cout << "left is : " << left -> data << "  right is : " << right -> data << endl;
-           return root;
-       }
-       else if(left != NULL && right == NULL){
-           cout << "left is : " << left -> data << "  right is NULL" << endl;
-           return left;
-       }
-       else{
-           return right;
-           cout << "left is null " << " right is : " << right -> data << endl;
-       }
-    }
-};
-
-//{ Driver Code Starts.
-
-Node* newNode(int val)
-{
-    Node* temp = new Node;
-    temp->data = val;
-    temp->left = NULL;
-    temp->right = NULL;
-
-    return temp;
-}
-
-
-// Function to Build Tree
-Node* buildTree(string str)
-{
-    // Corner Case
-    if(str.length() == 0 || str[0] == 'N')
-        return NULL;
-
-    // Creating vector of strings from input
-    // string after spliting by space
-    vector<string> ip;
-
-    istringstream iss(str);
-    for(string str; iss >> str; )
-        ip.push_back(str);
-
-    // for(string i:ip)
-    //     cout<<i<<" ";
-    // cout<<endl;
-    // Create the root of the tree
-    Node* root = newNode(stoi(ip[0]));
-
-    // Push the root to the queue
-    queue<Node*> queue;
-    queue.push(root);
-
-    // Starting from the second element
-    int i = 1;
-    while(!queue.empty() && i < ip.size()) {
-
-        // Get and remove the front of the queue
-        Node* currNode = queue.front();
-        queue.pop();
-
-        // Get the current node's value from the string
-        string currVal = ip[i];
-
-        // If the left child is not null
-        if(currVal != "N") {
-
-            // Create the left child for the current node
-            currNode->left = newNode(stoi(currVal));
-
-            // Push it to the queue
-            queue.push(currNode->left);
+ 
+    // now calculating system output for the planet in everysolar system and
+    // if none of those fits in the range than returning -1; otherwise returning index of the solar system;
+    
+    vector<int> Possible_systems;       //here will be index of solar systems in which kandor people can live 
+    for(int i = 0; i < n; i++){
+        
+        int ans = -1;
+        int m = data[i].size();
+        float energy = 0;                   // this will be the energy output for planet in a solar system
+        for(int j = 0; j < m; j++){
+            energy += data[i][j][0]/data[i][j][1];
         }
-
-        // For the right child
-        i++;
-        if(i >= ip.size())
-            break;
-        currVal = ip[i];
-
-        // If the right child is not null
-        if(currVal != "N") {
-
-            // Create the right child for the current node
-            currNode->right = newNode(stoi(currVal));
-
-            // Push it to the queue
-            queue.push(currNode->right);
+        if(energy >= en1 && energy <= en2){
+            ans = i;
+            Possible_systems.push_back(ans);
         }
-        i++;
     }
-
-    return root;
+    
+    
+    // printing the results
+    for(int i = 0; i < Possible_systems.size(); i++){
+        cout << Possible_systems[i] << " " ;
+    }cout << endl;
 }
-
-// Function for Inorder Traversal
-void printInorder(Node* root)
-{
-    if(!root)
-        return;
-
-    printInorder(root->left);
-    cout<<root->data<<" ";
-    printInorder(root->right);
-}
-
-int main() {
-    int t;
-    scanf("%d",&t);
-    while(t--)
-    {
-        int a,b;
-        scanf("%d %d ",&a,&b);
-        string s;
-        getline(cin,s);
-        Node* root = buildTree(s);
-        Solution ob;
-        cout<<ob.lca(root,a,b)->data<<endl;
-    }
-    return 0;
-}
-
-// } Driver Code Ends
